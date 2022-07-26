@@ -1,0 +1,1409 @@
+/* 
+代码开源，大家可以随意使用
+觉得代码还行的话多多支持一下up
+支持白嫖，但制作不易，记得给up一个免费的三连
+我的B站个人空间：https://space.bilibili.com/473361091?spm_id_from=333.1007.0.0
+代码有些bug，大家可以自己改动下，练习一下自己的纠错能力
+
+*/
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+body,
+html {
+
+  background: url(../images/jialuo-1.jpg) no-repeat;
+  background-size: 100% 100%;
+  /* 固定背景 */
+  background-attachment: fixed;
+
+
+}
+
+/* 头部 */
+
+.top {
+  position: relative;
+  width: 1600px;
+  height: 940px;
+  /* 居中展示 */
+  margin: 10px auto;
+}
+
+/* 头部旋转动画盒子 */
+.top>.big-box {
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  /*  */
+  transform: translate(-50%, -65%);
+  width: 500px;
+  height: 500px;
+}
+
+/* 头像位置和大小 */
+.top>.big-box>img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* h1标题设置 */
+.top .big-box div:nth-child(-n + 3) {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  background-color: rgb(77, 219, 255);
+  z-index: 1;
+}
+
+.top .big-box .h-3 {
+  position: absolute;
+  top: 80%;
+  left: 55%;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: #fff;
+  /* 标题阴影 */
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+  /* 让小标题最上层展示 */
+  z-index: 1;
+
+  text-align: center;
+  background-color: rgb(67, 171, 255);
+}
+
+/* 对头像旁边的标题进行定位 */
+.top>.big-box>div:nth-child(2) {
+  left: 64%;
+  top: 24%;
+}
+
+.top>.big-box>div:nth-child(3) {
+  left: 7%;
+  top: 29%;
+}
+
+/* 导航菜单动画效果 */
+.top>.big-box>.a1 {
+  position: absolute;
+  top: 27%;
+  left: 27%;
+  width: 220px;
+  height: 220px;
+  border: 3px solid transparent;
+  border-top-color: #ff1010;
+  border-bottom-color: #ff4d4d;
+  border-radius: 50%;
+  /* 规定动画名称 时间 延迟（这里延迟自上往下减少，让动画有错落感）匀速 无限循环 */
+  animation: spin 2.7s 1s linear infinite;
+}
+
+.top>.big-box>.a2 {
+  position: absolute;
+  top: 25%;
+  left: 23%;
+  width: 260px;
+  height: 260px;
+  border: 3px solid transparent;
+  border-left-color: #ff4111;
+  border-right-color: #ffeb38;
+  border-radius: 50%;
+  animation: spin 2.8s 0.6s linear infinite;
+}
+
+.top>.big-box>.a3 {
+  position: absolute;
+  top: 21%;
+  left: 20%;
+  width: 300px;
+  height: 300px;
+  border: 3px solid transparent;
+  border-top-color: #ffd447;
+  border-bottom-color: #3bdfee;
+  border-radius: 50%;
+  animation: spin-2 3s 0.4s linear infinite;
+}
+
+.top>.big-box>.a4 {
+  position: absolute;
+  top: 16%;
+  left: 14%;
+  width: 350px;
+  height: 350px;
+  border: 3px solid transparent;
+  border-left-color: #53ff6a;
+  border-right-color: #ff41c6;
+  border-radius: 50%;
+  animation: spin-2 3.4s 0.2s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-2 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.list {
+  display: flex;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  border-bottom: #fff 3px solid;
+}
+
+.list li {
+  position: relative;
+  /* 让盒子里的每个li平分宽度 */
+  flex: 1;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 12px;
+  color: tomato;
+}
+
+.list li .logo {
+  /* 中间的音乐盘图标大小 */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.list li a {
+  /* 导航栏a标签的文字颜色 */
+  color: #fff;
+}
+
+.list li:hover a {
+  /* 鼠标滑过a标签样式变化 */
+  color: rgb(242, 101, 255);
+  font-size: 15px;
+  transition: 0.1s;
+}
+
+.list .logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* 规定动画名称 时间 匀速执行 无限循环 */
+  animation: rotate 5s linear infinite;
+}
+
+/* 设置动画 */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 鼠标滑过样式 */
+/* 用：not反选，鼠标滑过图片css没动画 */
+.list li:not(.logo)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 7px;
+  background-color: rgb(210, 32, 255);
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform ease 0.5s;
+}
+
+.list li:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* 回到顶部按钮 */
+.blank {
+  position: fixed;
+  top: 80%;
+  right: 3%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.blank:hover {
+
+  box-shadow: 0 0 5px 5px #fff;
+
+}
+
+.top-nav-down {
+  /* 设置图标大小 */
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 1600px;
+  height: 40px;
+}
+
+/* 设置下导航图标 */
+.top-nav-down p {
+  /* 水平垂直居中 */
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(../images/收缩下箭头.svg) no-repeat;
+  /* 规定箭头上下跳动动画的名称 匀速执行 时间 无限循环 */
+  animation: top-nav linear 2.3s infinite;
+}
+
+/* 按钮动画 */
+@keyframes top-nav {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(15px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 头部导航区域end */
+
+/* banner 轮播图区域 */
+/* 右边个人卡片区域 */
+.first {
+  width: 1600px;
+  height: 1100px;
+  margin: 200px auto;
+  /* 边框阴影 */
+  box-shadow: -4px 0px 5px rgb(237, 35, 255);
+}
+
+.box {
+  position: relative;
+  width: 1600px;
+  height: 600px;
+  margin: 200px auto;
+}
+
+.box .box-right {
+  position: absolute;
+  top: 15%;
+  right: 20px;
+  /* 卡片大小 */
+  width: 295px;
+  height: 580px;
+  border-radius: 30px;
+  background-color: rgb(0, 0, 0, .4);
+  transition: 0.3s;
+}
+
+.box>.box-right>.box-right-logo {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+}
+
+.box>.box-right>.box-right-logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.box>.box-right h3 {
+  text-align: center;
+  color: #ff4d07;
+}
+
+.box>.box-right p {
+  text-align: center;
+  font-size: "微软雅黑" 15px;
+  margin-top: 7px;
+}
+
+.box>.box-right h2 {
+  text-align: center;
+}
+
+.box>.box-right .lb {
+  margin: 18px 50px;
+  font-size: 20px;
+  font-family: "微软雅黑";
+}
+
+/* 鼠标滑过缩放阴影 */
+.box>.box-right:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 7px 5px rgb(85, 96, 255);
+}
+
+.box>.time:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 7px 5px rgb(255, 230, 230);
+
+
+}
+
+/* 时间区域demo */
+.box .time {
+  position: absolute;
+  top: 15%;
+  left: 20px;
+  width: 295px;
+  height: 580px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+
+}
+
+.time p:nth-child(1) {
+  font-size: 40px;
+  text-align: center;
+}
+
+.time .p-text {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+.time .time-text {
+  color: white;
+  font-family: "微软雅黑" 23px;
+  text-align: center;
+}
+
+.time #demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(46, 206, 255);
+  font-size: 50px;
+}
+
+/* banner轮播图start */
+.swiper {
+  /* 相对定位 */
+  position: relative;
+  top: 15%;
+  width: 900px;
+  height: 580px;
+  /* 超出盒子隐藏 */
+  overflow: hidden;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+input {
+  /* 将input的小点去掉 */
+  display: none;
+}
+
+label {
+  /* 设置小圆点的大小 */
+  z-index: 1;
+  position: absolute;
+  bottom: 30px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgb(240, 95, 50);
+  /* 小圆点 */
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+label[for="btn1"] {
+  left: 18%;
+}
+
+label[for="btn2"] {
+  left: 23%;
+}
+
+label[for="btn3"] {
+  left: 28%;
+}
+
+label[for="btn4"] {
+  left: 33%;
+}
+
+label[for="btn5"] {
+  left: 38%;
+}
+
+label[for="btn6"] {
+  left: 43%;
+}
+
+label[for="btn7"] {
+  left: 48%;
+}
+
+label[for="btn8"] {
+  left: 53%;
+}
+
+label[for="btn9"] {
+  left: 58%;
+}
+
+label[for="btn10"] {
+  left: 63%;
+}
+
+label[for="btn12"] {
+  left: 68%;
+}
+
+label[for="btn13"] {
+  left: 73%;
+}
+
+label[for="btn14"] {
+  left: 78%;
+}
+
+.banner {
+  /* 让li水平排列 */
+  display: flex;
+  /* 自动计算宽度 */
+  width: calc(900px * 13);
+  /* 过渡时间 */
+  transition: all 1s;
+  border-radius: 10px;
+}
+
+.banner img {
+  width: 900px;
+  height: 580px;
+}
+
+.banner>li {
+  list-style-type: none;
+
+  animation: transform linear 26s forwards;
+}
+
+@keyframes transform {
+  0% {
+    transform: translateX(0px);
+  }
+
+  18% {
+    transform: translateX(900px);
+  }
+
+  /* 设置同样的值让图片停留一会 */
+  23% {
+    transform: translateX(900px);
+  }
+
+  28% {
+    transform: translateX(1800px);
+  }
+
+  33% {
+    transform: translateX(1800px);
+  }
+
+  38% {
+    transform: translateX(2800px);
+  }
+
+  43% {
+    transform: translateX(2800px);
+  }
+
+  48% {
+    transform: translateX(3600px);
+  }
+
+  53% {
+    transform: translateX(3600px);
+  }
+
+  58% {
+    transform: translateX(4500px);
+  }
+
+  63% {
+    transform: translateX(4500px);
+  }
+
+  68% {
+    transform: translateX(5400px);
+  }
+
+  73% {
+    transform: translateX(5400px);
+  }
+
+  78% {
+    transform: translateX(6300px);
+  }
+
+  83% {
+    transform: translateX(6300px);
+  }
+}
+
+#btn1:checked~.banner {
+  margin-left: 0;
+}
+
+#btn2:checked~.banner {
+  margin-left: -900px;
+}
+
+#btn3:checked~.banner {
+  margin-left: calc(-900px * 2);
+}
+
+#btn4:checked~.banner {
+  margin-left: calc(-900px * 3);
+}
+
+#btn5:checked~.banner {
+  margin-left: calc(-900px * 4);
+}
+
+#btn6:checked~.banner {
+  margin-left: calc(-900px * 5);
+}
+
+#btn7:checked~.banner {
+  margin-left: calc(-900px * 6);
+}
+
+#btn8:checked~.banner {
+  margin-left: calc(-900px * 7);
+}
+
+#btn9:checked~.banner {
+  margin-left: calc(-900px * 8);
+}
+
+#btn10:checked~.banner {
+  margin-left: calc(-900px * 9);
+}
+
+#btn12:checked~.banner {
+  margin-left: calc(-900px * 10);
+}
+
+#btn13:checked~.banner {
+  margin-left: calc(-900px * 12);
+}
+
+#btn14:checked~.banner {
+  margin-left: calc(-900px * 13);
+}
+
+#btn1:checked~label[for="btn1"] {
+  background-color: tomato;
+}
+
+#btn2:checked~label[for="btn2"] {
+  background-color: tomato;
+}
+
+#btn3:checked~label[for="btn3"] {
+  background-color: tomato;
+}
+
+#btn4:checked~label[for="btn4"] {
+  background-color: tomato;
+}
+
+#btn5:checked~label[for="btn5"] {
+  background-color: tomato;
+}
+
+#btn6:checked~label[for="btn6"] {
+  background-color: tomato;
+}
+
+#btn7:checked~label[for="btn7"] {
+  background-color: tomato;
+}
+
+#btn8:checked~label[for="btn8"] {
+  background-color: tomato;
+}
+
+#btn9:checked~label[for="btn9"] {
+  background-color: tomato;
+}
+
+#btn10:checked~label[for="btn10"] {
+  background-color: tomato;
+}
+
+#btn12:checked~label[for="btn12"] {
+  background-color: tomato;
+}
+
+#btn13:checked~label[for="btn13"] {
+  background-color: tomato;
+}
+
+#btn14:checked~label[for="btn14"] {
+  background-color: tomato;
+}
+
+/* 底部点赞卡片 */
+.hd-footer {
+  width: 1600px;
+  height: 250px;
+  margin: 20px auto;
+}
+
+.hd-footer>.list-box {
+  /* flex布局使得子元素水平排列 */
+  display: flex;
+  list-style: none;
+}
+
+.hd-footer>.list-box li {
+  position: relative;
+  /* li平分空间 */
+  flex: 1;
+  width: 360px;
+  height: 208px;
+  margin: 8px 10px;
+}
+
+/* 设置卡片背景颜色 */
+.hd-footer>.list-box li:nth-child(1) {
+  background: linear-gradient(to right,
+      rgb(202, 20, 193, 0.9),
+      rgb(255, 93, 228, 0.9));
+  box-shadow: 2px 5px 5px rgb(164, 58, 250);
+}
+
+.hd-footer>.list-box li:nth-child(2) {
+  background: linear-gradient(to right,
+      rgb(253, 39, 23, 0.9),
+      rgb(248, 167, 16, 0.9));
+  box-shadow: 2px 5px 5px rgb(164, 58, 250);
+}
+
+.hd-footer>.list-box li:nth-child(3) {
+  background: linear-gradient(to right,
+      rgb(255, 42, 106, 0.9),
+      rgb(255, 97, 137, 0.9));
+  box-shadow: 2px 5px 5px rgb(164, 58, 250);
+}
+
+.hd-footer>.list-box li:nth-child(4) {
+  background: linear-gradient(to right,
+      rgb(155, 255, 116, 0.9),
+      rgb(48, 178, 238, 0.9));
+  box-shadow: 2px 5px 5px rgb(164, 58, 250);
+}
+
+.hd-footer>.list-box li img {
+  position: relative;
+  top: -40px;
+  left: 15px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.hd-footer>.list-box li span {
+  margin-left: 3px;
+  font-size: 22px;
+  font-family: "宋体";
+  color: #fff;
+}
+
+.hd-footer>.list-box li p {
+  margin-left: 5px;
+  margin-bottom: 10%;
+  font-size: 10px;
+  color: #fff;
+}
+
+.hd-footer>.list-box li>.icon-1 img {
+  width: 30px;
+  height: 24px;
+}
+
+.hd-footer>.list-box li .icon-1 {
+  position: absolute;
+  top: 87%;
+  right: 24%;
+  width: 30px;
+  height: 24px;
+}
+
+/* 首页底部按钮 */
+.hd-footer-end {
+  /* 设置图标大小 */
+  margin: 100px auto;
+  width: 1600px;
+  height: 40px;
+}
+
+/* 设置下导航图标 */
+.hd-footer-end p {
+  /* 水平垂直居中 */
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background: url(../images/收缩下箭头.svg) no-repeat;
+  /* 规定箭头上下跳动动画的名称 匀速执行 时间 无限循环 */
+  animation: move linear 2.3s infinite;
+}
+
+/* 按钮动画 */
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(15px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 首页end */
+
+/* 关于我start */
+/* 百叶窗部分 */
+#gyw {
+  /* flex使得两个盒子水平排列 */
+  display: flex;
+  /* 水平反向排列，使得内容区在右边 */
+  flex-direction: row-reverse;
+  position: relative;
+  margin: 200px auto;
+  width: 1600px;
+  height: 980px;
+  /* 背景渐变色 */
+  /* background: linear-gradient(to right, #ff6666, #66ccff); */
+  background: rgb(0, 0, 0, 0.5);
+  box-shadow: -4px 4px 5px rgb(237, 35, 255);
+}
+
+#gyw .content {
+  width: 60%;
+  /* 内容居中展示 */
+  text-align: center;
+}
+
+#gyw .content p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* 设置字体上下间距和颜色 */
+  margin-top: 30px;
+  color: #fff;
+}
+
+/* 风车伪元素 */
+#gyw .content::before {
+  content: "";
+
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(../images/Windmill，风车，风力.svg) no-repeat;
+  background-size: 100% auto;
+  /* 规定动画名称 匀速执行 时间 无限循环 */
+  animation: fengche linear 1s infinite;
+}
+
+@keyframes fengche {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#gyw .gyw-footer {
+  position: relative;
+  width: 40%;
+  height: 100%;
+}
+
+#gyw>.gyw-footer .gyw-img li {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  list-style: none;
+  transition: 0.3s;
+}
+
+#gyw>.gyw-footer .gyw-img li img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+#gyw>.gyw-footer .gyw-img li:nth-child(1) {
+  left: 40px;
+  top: 30px;
+}
+
+#gyw>.gyw-footer .gyw-img li:nth-child(2) {
+  left: 400px;
+  top: 250px;
+}
+
+#gyw>.gyw-footer .gyw-img li:nth-child(3) {
+  left: 40px;
+  top: 460px;
+}
+
+#gyw>.gyw-footer .gyw-img li:nth-child(4) {
+  left: 400px;
+  top: 677px;
+}
+
+#gyw>.gyw-footer .gyw-img li:hover {
+  box-shadow: 0 0 5px 4px #2989f7;
+  transform: scale(1.1);
+}
+
+/* 个人爱好区域hobby */
+#hobby {
+  width: 1600px;
+  height: 940px;
+  background: rgb(0, 0, 0, 0.5);
+  box-shadow: -4px 4px 5px rgb(203, 33, 255);
+  /* 居中展示 */
+  margin: 50px auto;
+}
+
+#hobby>.box1 {
+  display: flex;
+  width: 1600px;
+  height: 500px;
+}
+
+#hobby>.box1 .box-top1,
+.box-top2 {
+  display: flex;
+  position: relative;
+  flex: 1;
+  margin: 2px;
+}
+/* 左边卡片 */
+#hobby>.box1>.box-top1 .top-left {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 300px;
+  height: 400px;
+  /* background:linear-gradient( to bottom right,#c96446,#ff8147,#d1963d); */
+  background: rgb(255, 88, 59, 0.9);
+
+  border-radius: 15px;
+  transition: 0.3s;
+}
+#hobby>.box1>.box-top1 .top-left i::before {
+  content: "";
+  display: block;
+  margin: 35px auto;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: url(../images/a_1.png) no-repeat;
+  background-size: 100% auto;
+  transition: 0.5s;
+}
+#hobby>.box1>.box-top1 .top-left img {
+  position: absolute;
+  top: 12%;
+  left: 26%;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+}
+#hobby>.box1>.box-top1 .top-left h1 {
+  text-align: center;
+  font: italic 34px;
+}
+/* hover */
+#hobby>.box1>.box-top1 .top-left i:hover::before {
+  transform: rotate(360deg);
+}
+#hobby>.box1>.box-top1 .top-left:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 6px 5px #ffffff;
+}
+#hobby>.box1>.box-top1 .content {
+  position: absolute;
+  top: 8%;
+  right: 10%;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+}
+#hobby>.box1>.box-top1 .content p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  color: rgb(255, 255, 255);
+  line-height: 28px;
+}
+/* top右边卡片 */
+#hobby>.box1>.box-top2 .top-right {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 300px;
+  height: 400px;
+  background-color: rgb(237, 104, 255, 0.9);
+  border-radius: 13px;
+}
+
+#hobby>.box1>.box-top2 .top-right i::before {
+  content: "";
+  display: block;
+  margin: 35px auto;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: url(../images/a_2.png) no-repeat;
+  background-size: 100% auto;
+  transition: 0.5s;
+}
+
+#hobby>.box1>.box-top2 .top-right img {
+  position: absolute;
+  top: 12%;
+  left: 26%;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+}
+
+#hobby>.box1>.box-top2 .top-right h1 {
+  text-align: center;
+  font: italic 34px;
+}
+
+/* hover */
+#hobby>.box1>.box-top2 .top-right i:hover::before {
+  transform: rotate(360deg);
+}
+
+#hobby>.box1>.box-top2 .top-right:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 6px 5px #ffffff;
+}
+
+#hobby>.box1>.box-top2 .content {
+  position: absolute;
+  top: 8%;
+  right: 10%;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+}
+
+#hobby>.box1>.box-top2 .content p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  color: rgb(255, 255, 255);
+  line-height: 40px;
+}
+
+/* 下半部分卡片 */
+#hobby>.box2 {
+  display: flex;
+  width: 1600px;
+  height: 500px;
+}
+
+#hobby>.box2 .box-bottom1,
+.box-bottom2 {
+  display: flex;
+  position: relative;
+  flex: 1;
+
+  /* background-color: rgb(151, 144, 142); */
+  margin: 2px;
+}
+/* bottom左边卡片 */
+#hobby>.box2>.box-bottom1 .box-bottom-left {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(to bottom right, #d4799f, #add158, #27e4eb);
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+#hobby>.box2>.box-bottom1 .box-bottom-left i::before {
+  content: "";
+  display: block;
+  margin: 35px auto;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: url(../images/a_3.png) no-repeat;
+  background-size: 100% auto;
+  transition: 0.5s;
+}
+
+#hobby>.box2>.box-bottom1 .box-bottom-left img {
+  position: absolute;
+  top: 12%;
+  left: 26%;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+}
+
+#hobby>.box2>.box-bottom1 .box-bottom-left h1 {
+  text-align: center;
+  font: italic 34px;
+}
+
+/* hover */
+#hobby>.box2>.box-bottom1 .box-bottom-left i:hover::before {
+  transform: rotate(360deg);
+}
+
+#hobby>.box2>.box-bottom1 .box-bottom-left:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 6px 5px #ffffff;
+}
+
+#hobby>.box2>.box-bottom1 .content {
+  position: absolute;
+  top: 8%;
+  right: 10%;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+}
+
+#hobby>.box2>.box-bottom1 .content p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  color: rgb(255, 255, 255);
+  line-height: 35px;
+}
+
+/* buttom右边卡片 */
+#hobby>.box2>.box-bottom2 .box-bottom-right {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 300px;
+  height: 400px;
+  background-color: rgb(255, 185, 55, 0.95);
+  border-radius: 13px;
+}
+
+#hobby>.box2>.box-bottom2 .box-bottom-right i::before {
+  content: "";
+  display: block;
+  margin: 35px auto;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: url(../images/a_4.png) no-repeat;
+  background-size: 100% auto;
+  transition: 0.5s;
+}
+
+#hobby>.box2>.box-bottom2 .box-bottom-right img {
+  position: absolute;
+  top: 12%;
+  left: 26%;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+}
+
+#hobby>.box2>.box-bottom2 .box-bottom-right h1 {
+  text-align: center;
+  font: italic 34px;
+}
+
+/* hover */
+#hobby>.box2>.box-bottom2 .box-bottom-right i:hover::before {
+  transform: rotate(360deg);
+}
+
+#hobby>.box2>.box-bottom2 .box-bottom-right:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 6px 5px #ffffff;
+}
+
+#hobby>.box2>.box-bottom2 .content {
+  position: absolute;
+  top: 3%;
+  right: 10%;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+}
+
+#hobby>.box2>.box-bottom2 .content p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  color: rgb(255, 255, 255);
+  line-height: 40px;
+}
+
+/* 爱好hobby end */
+/* 技术栈start */
+
+#wdfx {
+  width: 1600px;
+  height: 940px;
+  margin: 100px auto;
+  background-color: rgb(0, 0, 0, 0.4);
+  box-shadow: -5px 5px 5px rgb(237, 42, 255);
+}
+
+#jsz  {
+  position: relative;
+  width: 1600px;
+  height: 600px;
+  margin: 100px auto;
+  background-color: rgb(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 5px  rgb(237, 42, 255);
+}
+/* 前端学习路线图 */
+#jsz .lxt{
+  position: absolute;
+  top: -17%;
+  left: 37%;
+  width: 1600px;
+  height: 100px;
+  
+  
+
+}
+#jsz .lxt h1{
+  /* 清除前面的样式污染 */
+  margin: 0;
+}
+#jsz >.card-list{
+  position: absolute;
+  bottom: 0;
+  /* flex布局让子元素水平排列 */
+  display: flex;
+  width: 1600px;
+  height: 500px;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+
+}
+#jsz .card-list li {
+  position: relative;
+  /* 让每个li平分空间 */
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  
+  line-height: 10px;
+  border-radius: 10px ;
+  /* 隐藏遮罩层 */
+  overflow: hidden;
+}
+#jsz .card-list li h1{
+  margin: 0;/* 前面的样式污染了 ,清除外边距*/
+  line-height: 400px;
+}
+#jsz .card-list li img{
+  width: 300px;
+  height: 400px;
+  border-radius: 10px ;
+  
+
+}
+/* 设置遮罩层的样式 */
+#jsz .card-list li .up-1{
+  position: absolute;
+  top: 400px;
+  left: 0;
+  width: 300px;
+  height: 400px;
+  background-color: rgb(0, 0, 0,.4);
+  border-radius: 10px ;
+  transition: top 0.6s ease ;
+
+}
+/* hover效果 */
+#jsz .card-list li:hover .up-1{
+  top: 0;
+  
+}
+#jsz .card-list li:hover img{
+  transform: scale(1.3);
+  transition: 1s;
+}
+/* 留言区 */
+#lyq{
+  position: relative;
+  width: 1600px;
+  height: 600px;
+  background-color: rgba(91, 95, 97, 0.479);
+  margin: 100px auto ;
+}
+#lyq h1{
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+  
+}
+#lyq .fc-1{
+  position: absolute;
+  top: 3%;
+  right: 1%;
+
+  width: 48px;
+  height: 48px;
+
+}
+#lyq .fc-1 img{
+  width: 48px;
+  height: 48px;
+  animation: rotate linear 1.2s infinite;
+}
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+#lyq .icon{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 900px;
+  height: 200px;
+  margin: 200px auto;
+}
+
+
+
+#lyq .icon img{
+  display: block;
+  margin-left: 10px;
+  width: 250px;
+  height: 80px;
+  border-radius: 13px;
+  /* box-shadow: 0 0 2px 2px rgba(110, 106, 106, 0.856); */
+  transition: img ease 0.5s ;
+
+}
+#lyq .icon img:hover{
+  transform: translateY(-7px);
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.877);
+  box-shadow: 0 0 3px 3px rgb(240, 127, 255,.8);
+  /* transform: scale(1.1); */
+  
+
+}
+
+#lyq .icon .sanjiao{
+  list-style: none;
+  position: relative;
+}
+#lyq .icon .sanjiao .qq{
+  position: absolute;
+  top: 85px;
+  right: 46px;
+  width: 160px;
+  /* height:160px; */
+  height: 0;
+  background: url("../images/微信二维码.png") no-repeat;
+  background-size: 100% auto;
+  transition-duration: 350ms;
+
+}
+#lyq .icon .sanjiao:hover .qq{
+  height: 160px;
+
+}
+
+
